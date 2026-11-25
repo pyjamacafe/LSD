@@ -10310,7 +10310,7 @@
 			(at 63.5 260.35 0)
 			(effects (font (size 1.27 1.27)) )
 		)
-		(property "Value" "BOOT"
+		(property "Value" "PROG"
 			(at 63.5 267.97 0)
 			(effects (font (size 1.27 1.27)))
 		)
@@ -11517,8 +11517,8 @@
 	(label "CRESET_B" (at 73.66 251.46 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d28978fa-8492-5367-b156-b3cea778c516"))
 	(label "CDONE" (at 96.52 251.46 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "8e274520-8f87-5800-a629-f9697c24d7d6"))
 	(label "CRESET_B" (at 20.32 264.16 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "545d99c7-1413-5a1c-9013-023c26f2583e"))
-	(label "BOOT_BTN_N" (at 53.34 264.16 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "ada12f39-6c93-5365-ac7d-be7c24ad991b"))
-	(label "BOOT_BTN_N" (at 83.82 269.24 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "9078fbf6-5cef-5950-97fe-7aebe480b9f0"))
+	(label "PROG_BTN_N" (at 53.34 264.16 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "ada12f39-6c93-5365-ac7d-be7c24ad991b"))
+	(label "PROG_BTN_N" (at 83.82 269.24 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "9078fbf6-5cef-5950-97fe-7aebe480b9f0"))
 	(label "VCCPLL" (at 167.64 33.02 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "05cdcc81-9ac3-5392-89e3-a8e8df0a356d"))
 	(label "VPP_2V5" (at 162.56 33.02 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "bcb9fb36-26a8-5938-bf65-74be7a961557"))
 	(label "CDONE" (at 180.34 55.88 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "11a3ae62-2038-5f9b-8e12-c98c6a9d8d5c"))
@@ -11546,7 +11546,7 @@
 	(label "IO_L15" (at 142.24 149.86 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "44772f44-6fe1-56eb-9ae4-14e39dc2a20a"))
 	(label "IO_L16" (at 142.24 154.94 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "c389f453-45f8-5744-a071-11e4dacf2f68"))
 	(label "IO_L17" (at 142.24 157.48 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "78e6f6d1-4633-517a-b821-2871b5f3901d"))
-	(label "BOOT_BTN_N" (at 210.82 71.12 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "2ff6cf9b-c591-59bd-9a14-bac83dae81c4"))
+	(label "PROG_BTN_N" (at 210.82 71.12 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "2ff6cf9b-c591-59bd-9a14-bac83dae81c4"))
 	(label "USB_PU" (at 210.82 73.66 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d0ce1691-8722-50f1-9baf-fc73550320d5"))
 	(label "USB_DP" (at 210.82 76.2 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "c2fe999b-0161-5d03-a3ae-819360a0a52c"))
 	(label "USB_DN" (at 210.82 78.74 180) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "e83e71d9-b8f8-5228-8332-bd5b7eee2371"))
