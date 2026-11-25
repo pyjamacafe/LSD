@@ -1,0 +1,56 @@
+# Lattice iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1" Pitch) — Pin Constraints (.pcf)
+# Compatible with Yosys / nextpnr-ice40 / IceStorm / TinyFPGA USB Bootloader
+
+# 16 MHz System Clock (GBIN6 -> internal SB_PLL40_CORE -> 48 MHz for USB FS)
+set_io CLK_16M 21
+
+# Direct FTDI-less USB Full-Speed Interface (Bank 0, Top Edge, 3.3V)
+set_io USB_DN 129
+set_io USB_DP 128
+set_io USB_PU 122
+
+# External SPI Flash (W25Q16JVSS) — Master SPI Boot & Runtime Bootloader Access
+set_io FLASH_DO   67
+set_io FLASH_DI   68
+set_io FLASH_SCK  70
+set_io FLASH_CS_N 71
+
+# Left 1x20 Breadboard Header J3 (Bank 3: Pin 1 = +3V3, Pins 2..19 = IO_L0..17, Pin 20 = GND)
+set_io IO_L0  1
+set_io IO_L1  2
+set_io IO_L2  3
+set_io IO_L3  4
+set_io IO_L4  7
+set_io IO_L5  8
+set_io IO_L6  9
+set_io IO_L7  10
+set_io IO_L8  11
+set_io IO_L9  12
+set_io IO_L10 19
+set_io IO_L11 20
+set_io IO_L12 22
+set_io IO_L13 23
+set_io IO_L14 24
+set_io IO_L15 25
+set_io IO_L16 28
+set_io IO_L17 29
+
+# Right 1x20 Breadboard Header J4 (Bank 1: Pin 1 = GND, Pins 2..19 = IO_R0..17, Pin 20 = +5V VBUS)
+set_io IO_R0  73
+set_io IO_R1  74
+set_io IO_R2  75
+set_io IO_R3  76
+set_io IO_R4  78
+set_io IO_R5  79
+set_io IO_R6  80
+set_io IO_R7  81
+set_io IO_R8  87
+set_io IO_R9  88
+set_io IO_R10 90
+set_io IO_R11 91
+set_io IO_R12 93
+set_io IO_R13 94
+set_io IO_R14 95
+set_io IO_R15 96
+set_io IO_R16 97
+set_io IO_R17 98
