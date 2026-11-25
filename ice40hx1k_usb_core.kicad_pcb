@@ -8,9 +8,9 @@
 	)
 	(paper "A4")
 	(title_block
-		(title "iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1in)")
+		(title "!LSD — iCE40HX1K-TQ144 USB Breadboard Core")
 		(date "2026-11-25")
-		(rev "2.0")
+		(rev "2.3")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -7776,11 +7776,11 @@
 	
 )
 	(gr_rect (start 0 0) (end 31.2 64.0) (stroke (width 0.15) (type solid)) (fill none) (layer "Edge.Cuts") (uuid "be10c5d6-b583-50dc-a7db-e1b9a0b1c157"))
-	(gr_text "iCE40HX1K-TQ144" (at 15.6 28.0 0) (layer "B.SilkS") (uuid "db894b2d-974c-5cd9-9f36-3cde704c75ee") (effects (font (size 0.80 0.80) (thickness 0.14)) (justify mirror)))
-	(gr_text "USB Core v2.3" (at 15.6 29.7 0) (layer "B.SilkS") (uuid "2ac21b5c-fc46-560c-91fe-ab4caf93efce") (effects (font (size 0.80 0.80) (thickness 0.14)) (justify mirror)))
-	(gr_text "CLK:P21 (16MHz)" (at 15.6 31.8 0) (layer "B.SilkS") (uuid "d17af044-4913-5430-9773-a8d6977311b1") (effects (font (size 0.68 0.68) (thickness 0.12)) (justify mirror)))
-	(gr_text "USB:P129/128/122" (at 15.6 33.3 0) (layer "B.SilkS") (uuid "bbf5ca9e-4dd0-596f-be6c-543e7f403971") (effects (font (size 0.68 0.68) (thickness 0.12)) (justify mirror)))
-	(gr_text "PROG:P121" (at 15.6 34.8 0) (layer "B.SilkS") (uuid "183c1920-2bd9-5f64-a154-00bb460370fe") (effects (font (size 0.68 0.68) (thickness 0.12)) (justify mirror)))
+	(gr_text "!LSD" (at 15.6 25.5 0) (layer "B.SilkS") (uuid "db894b2d-974c-5cd9-9f36-3cde704c75ee") (effects (font (size 2.2 2.2) (thickness 0.35) (bold yes)) (justify mirror)))
+	(gr_text "iCE40HX1K-TQ144" (at 15.6 29.0 0) (layer "B.SilkS") (uuid "2ac21b5c-fc46-560c-91fe-ab4caf93efce") (effects (font (size 0.78 0.78) (thickness 0.14)) (justify mirror)))
+	(gr_text "CLK:P21 (16MHz)" (at 15.6 31.5 0) (layer "B.SilkS") (uuid "d17af044-4913-5430-9773-a8d6977311b1") (effects (font (size 0.68 0.68) (thickness 0.12)) (justify mirror)))
+	(gr_text "USB:P129/128/122" (at 15.6 33.0 0) (layer "B.SilkS") (uuid "bbf5ca9e-4dd0-596f-be6c-543e7f403971") (effects (font (size 0.68 0.68) (thickness 0.12)) (justify mirror)))
+	(gr_text "PROG:P121" (at 15.6 34.5 0) (layer "B.SilkS") (uuid "183c1920-2bd9-5f64-a154-00bb460370fe") (effects (font (size 0.68 0.68) (thickness 0.12)) (justify mirror)))
 	(gr_text "SPI BOOT" (at 17.0 55.0 0) (layer "B.SilkS") (uuid "db0e83c7-1f12-5e20-9b51-d9d47194f345") (effects (font (size 0.72 0.72) (thickness 0.13)) (justify mirror)))
 	(gr_text "3V3" (at 1.63 4.6 0) (layer "F.SilkS") (uuid "bb409fb9-a9e4-5386-ab55-f0bf36923c1f") (effects (font (size 0.8 0.8) (thickness 0.15))))
 	(gr_text "5V" (at 29.57 4.6 0) (layer "F.SilkS") (uuid "9741e4df-8bde-55b8-9348-e86eeede7c7e") (effects (font (size 0.8 0.8) (thickness 0.15))))

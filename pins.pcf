@@ -1,4 +1,4 @@
-# Lattice iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1" Pitch) — Pin Constraints (.pcf)
+# !LSD — Lattice iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1" Pitch) — Pin Constraints (.pcf)
 # Matches the B.SilkS pin labels printed on the back of the PCB (e.g. L0/P1 .. R17/P98).
 # Compatible with Yosys / nextpnr-ice40 / IceStorm / TinyFPGA USB Bootloader.
 

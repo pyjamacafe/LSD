@@ -1,4 +1,4 @@
-# iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1″ Carrier, KiCad 10)
+# !LSD — iCE40HX1K-TQ144 USB Breadboard Core (KiCad 10)
 
 A breadboardable, Raspberry Pi Pico-style 2-layer **Lattice iCE40HX1K-TQ144** (1,280 LUTs) FPGA core board designed in **KiCad 10**, programmable directly over a top-edge **USB Micro-B** port without an FTDI bridge chip by running the open-source **TinyFPGA RTL USB Bootloader** in the FPGA fabric.
 

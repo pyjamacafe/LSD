@@ -5,13 +5,13 @@
       "Application": "Pcbnew",
       "Version": "10.0.3"
     },
-    "CreationDate": "2026-11-25T18:23:07+05:30"
+    "CreationDate": "2026-11-25T18:41:25+05:30"
   },
   "GeneralSpecs": {
     "ProjectId": {
       "Name": "ice40hx1k_usb_core",
       "GUID": "69636534-3068-4783-916b-5f7573625f63",
-      "Revision": "2.0"
+      "Revision": "2.3"
     },
     "Size": {
       "X": 31.35,
@@ -33,11 +33,6 @@
     }
   ],
   "FilesAttributes": [
-    {
-      "Path": "ice40hx1k_usb_core-F_Silkscreen.gto",
-      "FileFunction": "Legend,Top",
-      "FilePolarity": "Positive"
-    },
     {
       "Path": "ice40hx1k_usb_core-B_Silkscreen.gbo",
       "FileFunction": "Legend,Bot",

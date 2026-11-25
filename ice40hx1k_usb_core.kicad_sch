@@ -5,10 +5,10 @@
 	(uuid "695ef6de-2162-5010-aaf1-5aa84a67d4eb")
 	(paper "A3")
 	(title_block
-		(title "iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1in)")
+		(title "!LSD — iCE40HX1K-TQ144 USB Breadboard Core")
 		(date "2026-11-25")
-		(rev "2.2")
-		(comment 1 "FTDI-less USB Micro-B via TinyFPGA RTL USB Bootloader; 31.2x64mm 2-Layer")
+		(rev "2.3")
+		(comment 1 "FTDI-less USB Micro-B via USB DFU Bootloader; 31.2x64mm 2-Layer")
 		(comment 2 "2x20 2.54mm breadboard headers spaced 27.94mm (1.1in); 16MHz->48MHz PLL")
 	)
 	(lib_symbols
