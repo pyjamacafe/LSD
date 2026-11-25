@@ -5363,17 +5363,7 @@
 		(remove_unused_layers no)
 	 (net 5 "CDONE") (uuid "140f8f1d-eb45-5038-bafe-1fcf60bc9f09"))
 	(embedded_fonts no)
-	(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x04_P2.54mm_Vertical.step"
-		(offset
-			(xyz 0 0 0)
-		)
-		(scale
-			(xyz 1 1 1)
-		)
-		(rotate
-			(xyz 0 0 0)
-		)
-	)
+	
 )
 (footprint "Button_Switch_SMD:SW_SPST_B3U-1000P"
 	(at 25.2 60.2 0)
@@ -5385,6 +5375,7 @@
 		(at 0 -2.5 0)
 		(layer "F.SilkS")
 		(uuid "e56ff9ca-74d7-4aa3-8111-533a5ee32933")
+		(hide yes)
 		(effects
 			(font
 				(size 1 1)
@@ -5628,6 +5619,7 @@
 		(at 0 -2.5 0)
 		(layer "F.SilkS")
 		(uuid "e56ff9ca-74d7-4aa3-8111-533a5ee32933")
+		(hide yes)
 		(effects
 			(font
 				(size 1 1)
@@ -7188,6 +7180,7 @@
 	(property "Reference" "J3"
 		(at 0 -2.38 0)
 		(layer "F.SilkS")
+		(hide yes)
 		(effects
 			(font
 				(size 1 1)
@@ -7478,17 +7471,7 @@
 		(remove_unused_layers no)
 	 (net 14 "GND") (uuid "0694519f-5910-57b8-bc67-122638ce3fe9"))
 	(embedded_fonts no)
-	(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x20_P2.54mm_Vertical.step"
-		(offset
-			(xyz 0 0 0)
-		)
-		(scale
-			(xyz 1 1 1)
-		)
-		(rotate
-			(xyz 0 0 0)
-		)
-	)
+	
 )
 (footprint "Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical"
 	(at 29.57 56.13 180)
@@ -7499,6 +7482,7 @@
 	(property "Reference" "J4"
 		(at 0 -2.38 0)
 		(layer "F.SilkS")
+		(hide yes)
 		(effects
 			(font
 				(size 1 1)
@@ -7789,17 +7773,7 @@
 		(remove_unused_layers no)
 	 (net 3 "+5V") (uuid "8c257feb-c9e4-566c-b092-9f4d9de77838"))
 	(embedded_fonts no)
-	(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x20_P2.54mm_Vertical.step"
-		(offset
-			(xyz 0 0 0)
-		)
-		(scale
-			(xyz 1 1 1)
-		)
-		(rotate
-			(xyz 0 0 0)
-		)
-	)
+	
 )
 	(gr_rect (start 0 0) (end 31.2 64.0) (stroke (width 0.15) (type solid)) (fill none) (layer "Edge.Cuts") (uuid "be10c5d6-b583-50dc-a7db-e1b9a0b1c157"))
 	(gr_text "iCE40HX1K-TQ144" (at 15.6 28.0 0) (layer "B.SilkS") (uuid "db894b2d-974c-5cd9-9f36-3cde704c75ee") (effects (font (size 0.80 0.80) (thickness 0.14)) (justify mirror)))
