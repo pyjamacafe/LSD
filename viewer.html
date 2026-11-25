@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iCE40HX1K-TQ144 USB Breadboard Core — 3D Viewer</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 50% 35%, #232a36 0%, #11151c 100%);
+      color: #e8edf5;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: rgba(15, 19, 26, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+    .title h1 { font-size: 15px; font-weight: 600; letter-spacing: 0.2px; }
+    .title p { font-size: 12px; color: #9aa7bd; margin-top: 2px; }
+    .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    button, label.file-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e8edf5;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    button:hover, label.file-btn:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    button.active {
+      background: #2e7d32;
+      border-color: #4caf50;
+    }
+    input[type="file"] { display: none; }
+    main { flex: 1; position: relative; }
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+    }
+    #file-banner {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18, 24, 34, 0.94);
+      border: 1px solid rgba(255, 193, 7, 0.45);
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 13px;
+      color: #f4f6fa;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      align-items: center;
+      gap: 12px;
+      z-index: 20;
+    }
+    #file-banner code {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">
+      <h1>iCE40HX1K-TQ144 USB Breadboard Core (v2.1)</h1>
+      <p>31.2 × 64.0 mm · 2-Layer · 1.1″ Pico-Style Headers · FTDI-less USB Mini-B</p>
+    </div>
+    <div class="controls">
+      <button onclick="setView('30deg 55deg auto')">Isometric</button>
+      <button onclick="setView('0deg 0deg auto')">Top</button>
+      <button onclick="setView('0deg 180deg auto')">Bottom (Pinout)</button>
+      <button id="rot-btn" class="active" onclick="toggleRotate()">Auto-Rotate</button>
+      <label class="file-btn">
+        Load .glb
+        <input id="file-input" type="file" accept=".glb,.gltf" />
+      </label>
+    </div>
+  </header>
+
+  <main id="drop-zone">
+    <model-viewer
+      id="pcb"
+      src="renders/ice40hx1k_usb_core.glb"
+      alt="iCE40HX1K-TQ144 USB Breadboard Core PCB 3D Model"
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="1000"
+      rotation-per-second="18deg"
+      shadow-intensity="1.2"
+      shadow-softness="0.8"
+      exposure="1.15"
+      environment-image="neutral"
+      camera-orbit="30deg 55deg auto"
+      touch-action="pan-y"
+    ></model-viewer>
+
+    <div id="file-banner">
+      <span>Opened via <code>file://</code> — browsers block local fetch. Drop <code>renders/ice40hx1k_usb_core.glb</code> here, click <strong>Load .glb</strong>, or run <code>python3 -m http.server</code>.</span>
+    </div>
+  </main>
+
+  <script>
+    const viewer = document.getElementById("pcb");
+    const rotBtn = document.getElementById("rot-btn");
+    const fileInput = document.getElementById("file-input");
+    const fileBanner = document.getElementById("file-banner");
+    const dropZone = document.getElementById("drop-zone");
+
+    if (window.location.protocol === "file:") {
+      fileBanner.style.display = "flex";
+    }
+
+    function setView(orbit) {
+      viewer.cameraOrbit = orbit;
+      viewer.fieldOfView = "auto";
+    }
+
+    function toggleRotate() {
+      const on = viewer.hasAttribute("auto-rotate");
+      if (on) {
+        viewer.removeAttribute("auto-rotate");
+        rotBtn.classList.remove("active");
+      } else {
+        viewer.setAttribute("auto-rotate", "");
+        rotBtn.classList.add("active");
+      }
+    }
+
+    function loadFile(file) {
+      if (!file) return;
+      viewer.src = URL.createObjectURL(file);
+      fileBanner.style.display = "none";
+    }
+
+    fileInput.addEventListener("change", (e) => loadFile(e.target.files[0]));
+    dropZone.addEventListener("dragover", (e) => e.preventDefault());
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      if (e.dataTransfer.files.length) loadFile(e.dataTransfer.files[0]);
+    });
+  </script>
+</body>
+</html>
