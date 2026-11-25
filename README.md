@@ -26,22 +26,12 @@
 * **Push Buttons (Omron `B3U-1000P`):**
   * **`RST` (`SW1`):** Pulls `CRESET_B` (Pin `66`) low to reset and reboot the FPGA from SPI Flash.
   * **`PROG` (`SW2`):** Active-low input on Pin `121` (`PROG_BTN_N`, `10 kΩ` pull-up `R10`). Hold **`PROG`** and tap **`RST`** to keep the FPGA in USB DFU bootloader mode.
-* **Power Supply:** Cascaded low-noise LDOs from USB 5V: `AP2112K-3.3` (`U3`, 3.3V I/O & Flash) → `AP2112K-1.2` (`U4`, 1.2V Core + RC-filtered `VCCPLL`), plus `1N4148W` drop diode (`D1`) for `VPP_2V5` per the Lattice iCE40 Hardware Checklist.
+* **Power Supply (Sequenced per Lattice `FPGA-TN-02006`):** Independent low-noise LDOs from USB 5V: `AP2112K-1.2` (`U4`, 1.2V Core + RC-filtered `VCCPLL` with isolated local `GNDPLL` return on Pin `35`/`C14`/`C13` — never tied to the main `GND` plane) ramps first, followed by `AP2112K-3.3` (`U3`, 3.3V I/O & Flash, `EN` delayed ~8–36 ms via `R11 = 10 kΩ` / `C19 = 10 µF`), and `1N4148W` drop diode (`D1`) for `VPP_2V5` — guaranteeing `+1V2`/`VCCPLL` (`≥ 0.5 V`) → `+3V3` (`SPI_VCC`) → `VPP_2V5`.
 * **One-Time SPI Bootstrap Header (`J2`):** Unpopulated 2×4 2.54 mm header at the bottom edge (`3V3`, `GND`, `CS`, `SCK`, `DI`, `DO`, `RST`, `DN`) for flashing the bootloader once onto a blank SPI Flash.
 
 ---
 
-## power stuff to fix before fab
-
-- The schematic now uses a separate `GNDPLL` net for U1 pin 35 and the return sides of C13/C14. The PLL ground is internally referenced inside the FPGA, so don't connect this net to the board GND plane. The flag on GNDPLL is just for ERC, not an external power connection.
-- PCB still needs updating from the schematic: remove the old GND connections/vias for those three pads, route the dedicated PLL return, and keep the 100nF cap close to U1. Route VCCPLL from pin 36 to C14, then C13, then R7. Refill zones and check that neither PLL return nor its vias touch the system GND plane.
-- The 1.2V LDO currently gets its input from 3.3V, which doesn't guarantee the recommended startup order. Need a sequenced supply design with VCC/VCCPLL reaching at least 0.5V before SPI_VCC, and SPI_VCC before VPP_2V5. Check regulator EN thresholds, PLL RC ramp, thermal dissipation and worst-case loads; just swapping the regulator inputs isn't enough.
-
-Reference: [Lattice FPGA-TN-02006-2.4](https://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/IK/FPGA-TN-02006-2-4-iCE40-Hardware-Checklist.ashx?document_id=47779), fig 2.1 and sections 2.2/2.3.
-
-**Don't fab from this branch yet.** PCB, Gerbers, and renders are still rev 2.3. The results below are from the original design, not from this schematic change. Rerun ERC/DRC and regenerate all fab outputs after routing and sequencing are done.
-
-## Verification (KiCad `10.0.3` CLI)
+## Verification (KiCad `10.0.3` CLI — Rev `2.5`)
 
 * **Schematic ERC (`kicad-cli sch erc`):** `0` errors, `0` warnings
 * **2-Layer PCB DRC (`kicad-cli pcb drc --refill-zones`):** `0` errors, `0` unconnected items

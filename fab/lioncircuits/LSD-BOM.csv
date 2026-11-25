@@ -10,9 +10,9 @@ D1,1,1N4148W-7-F,Diodes Incorporated,Switching Diode 75V 300mA (VPP_2V5 drop),SO
 "SW1,SW2",2,B3U-1000P,Omron,"Tactile Push Button Switch SPST-NO (RST, PROG)",3.0x2.5mm 2-Pin SMD,No,SMT
 "R1,R2",2,RC0603FR-0727RL,Yageo,"27 Ohm 1% 0603 Resistor (USB D+/D- series, no2usb)",0603 (1608 metric),No,SMT
 R3,1,RC0603FR-071K5L,Yageo,1.5 kOhm 1% 0603 Resistor (USB D+ pull-up),0603 (1608 metric),No,SMT
-"R4,R5,R6,R8,R9,R10",6,RC0603FR-0710KL,Yageo,10 kOhm 1% 0603 Pull-up Resistor,0603 (1608 metric),No,SMT
+"R4,R5,R6,R8,R9,R10,R11",7,RC0603FR-0710KL,Yageo,10 kOhm 1% 0603 Resistor (pull-ups & U3 EN delay),0603 (1608 metric),No,SMT
 R7,1,RC0603FR-07100RL,Yageo,100 Ohm 1% 0603 Resistor (VCCPLL filter),0603 (1608 metric),No,SMT
-"C1,C2,C3,C4,C13",5,GRM188R61A106KE69D,Murata,10 uF 10V X5R 0603 MLCC Capacitor,0603 (1608 metric),No,SMT
+"C1,C2,C3,C4,C13,C19",6,GRM188R61A106KE69D,Murata,10 uF 10V X5R 0603 MLCC Capacitor,0603 (1608 metric),No,SMT
 "C5,C6,C7,C8,C9,C10,C11,C12,C14,C15,C16,C17,C18",13,GRM188R71C104KA01D,Murata,100 nF 16V X7R 0603 MLCC Capacitor,0603 (1608 metric),No,SMT
 J2,1,61300821121,Wurth Elektronik,"2x4 2.54mm Pin Header (SPI Boot, Unpopulated)",PinHeader 2x04 P2.54mm,Yes,through_hole
 "J3,J4",2,61302011121,Wurth Elektronik,1x20 2.54mm Pin Header (User soldered),PinHeader 1x20 P2.54mm,Yes,through_hole
