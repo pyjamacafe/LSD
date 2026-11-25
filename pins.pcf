@@ -9,6 +9,7 @@ set_io CLK_16M 21   # 16 MHz Oscillator (GBIN6 -> SB_PLL40_CORE -> 48 MHz USB)
 set_io USB_DN 129   # USB Micro-B D- (via 68R + USBLC6-2SC6)
 set_io USB_DP 128   # USB Micro-B D+ (via 68R + USBLC6-2SC6)
 set_io USB_PU 122   # USB D+ 1.5k software pull-up control
+set_io BOOT_BTN_N 121  # SW2 (BOOT) active-low push button (10k pull-up; hold + tap RESET for USB prog mode)
 
 # ---------------------------------------------------------------------------
 # External SPI Flash (W25Q16JVSS) — Master SPI Boot & Bootloader Flash Access

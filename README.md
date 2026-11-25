@@ -9,6 +9,7 @@ A breadboardable, Raspberry Pi Pico-style 2-layer **Lattice iCE40HX1K-TQ144** (1
 - **USB Programming (No FTDI):** Top-center USB Micro-B (`J1`, Molex 47346-0001) + `USBLC6-2SC6` ESD protection (`U5`) + 68 Ω series resistors (`R1`, `R2`) + software-controlled 1.5 kΩ `D+` pull-up (`R3`) wired directly to Bank 0 pins `129` (`USB_DN`), `128` (`USB_DP`), and `122` (`USB_PU`)
 - **Clock:** 16 MHz 3.3V CMOS oscillator (`Y1`, Abracon ASE) wired to `GBIN6` (Pin `21`), multiplied to 48 MHz via `SB_PLL40_CORE` for Full-Speed USB
 - **Configuration Memory:** `W25Q16JVSS` (16 Mbit / 2 MB SOIC-8 SPI Flash, `U2`) wired in Master SPI mode with 10 kΩ pull-ups on `FLASH_CS_N`, `CRESET_B`, `CDONE`, `~WP`, and `~HOLD`
+- **Push Buttons:** `SW1` (**RST** / Reboot — pulls `CRESET_B` low to reboot FPGA from SPI Flash) and `SW2` (**BOOT** / Programming Mode — active-low on Pin `121` with 10 kΩ pull-up; hold **BOOT** and tap **RST** to stay in TinyFPGA USB bootloader mode)
 - **One-Time SPI Bootstrap Header:** Unpopulated 2×4 `J2` (`SPI_BOOT_HDR`) centered along the bottom edge (just like the Raspberry Pi Pico's bottom SWD port)
 - **Power Supply:** Cascaded low-noise LDOs from USB 5V: `AP2112K-3.3` (`U3`) → `AP2112K-1.2` (`U4`), RC-filtered `VCCPLL`, and `1N4148W` drop diode (`D1`) for `VPP_2V5` per the Lattice iCE40 Hardware Checklist
 
