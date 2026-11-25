@@ -8197,41 +8197,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 88.9 119.38 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(uuid "29d98a35-44fd-5be1-b11d-72e5d3a2b640")
-		(property "Reference" "#PWR026"
-			(at 88.9 115.57 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Value" "GND"
-			(at 88.9 123.19 0)
-			(effects (font (size 1.27 1.27)))
-		)
-		(property "Footprint" ""
-			(at 88.9 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Datasheet" ""
-			(at 88.9 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(pin "1" (uuid "1c81a81f-4613-5f2a-9fd2-afb51ac4c1ba"))
-		(instances
-			(project "ice40hx1k_usb_core"
-				(path "/695ef6de-2162-5010-aaf1-5aa84a67d4eb"
-					(reference "#PWR026")
-					(unit 1)
-				)
-			)
-		)
-	)
+	(label "GNDPLL" (at 88.9 119.38 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "29d98a35-44fd-5be1-b11d-72e5d3a2b640"))
 	(symbol
 		(lib_id "Device:C_Small")
 		(at 99.06 114.3 0)
@@ -8268,41 +8234,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 99.06 119.38 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(uuid "766c320f-6d4b-5fa5-b6d3-6dd482e11a4a")
-		(property "Reference" "#PWR027"
-			(at 99.06 115.57 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Value" "GND"
-			(at 99.06 123.19 0)
-			(effects (font (size 1.27 1.27)))
-		)
-		(property "Footprint" ""
-			(at 99.06 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Datasheet" ""
-			(at 99.06 119.38 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(pin "1" (uuid "b88a5ce1-5129-5e75-8bc2-4304e08cdba7"))
-		(instances
-			(project "ice40hx1k_usb_core"
-				(path "/695ef6de-2162-5010-aaf1-5aa84a67d4eb"
-					(reference "#PWR027")
-					(unit 1)
-				)
-			)
-		)
-	)
+	(label "GNDPLL" (at 99.06 119.38 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "766c320f-6d4b-5fa5-b6d3-6dd482e11a4a"))
 	(symbol
 		(lib_id "power:PWR_FLAG")
 		(at 104.14 109.22 0)
@@ -10567,41 +10499,7 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "power:GND")
-		(at 167.64 78.74 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(uuid "6712f2be-4c7a-55bd-bfc8-27421c707ccd")
-		(property "Reference" "#PWR068"
-			(at 167.64 74.93 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Value" "GND"
-			(at 167.64 82.55 0)
-			(effects (font (size 1.27 1.27)))
-		)
-		(property "Footprint" ""
-			(at 167.64 78.74 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(property "Datasheet" ""
-			(at 167.64 78.74 0)
-			(effects (font (size 1.27 1.27)) (hide yes))
-		)
-		(pin "1" (uuid "b5c26016-1c78-53e4-8b7e-8415b748b29c"))
-		(instances
-			(project "ice40hx1k_usb_core"
-				(path "/695ef6de-2162-5010-aaf1-5aa84a67d4eb"
-					(reference "#PWR068")
-					(unit 1)
-				)
-			)
-		)
-	)
+	(label "GNDPLL" (at 167.64 78.74 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "6712f2be-4c7a-55bd-bfc8-27421c707ccd"))
 	(symbol
 		(lib_id "power:+3V3")
 		(at 152.4 33.02 0)
@@ -11679,6 +11577,41 @@
 	(no_connect (at 215.9 203.2) (uuid "6a8fe480-4913-5b9f-9117-262f2a76cc16"))
 	(no_connect (at 215.9 205.74) (uuid "d9638b05-458d-52f8-bf95-004ef67286ab"))
 	(no_connect (at 215.9 208.28) (uuid "363aa8a0-8eca-5511-baee-14be54f964b6"))
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 167.64 78.74 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(uuid "93deed4d-4c8d-4df4-8a8d-937aa81cf551")
+		(property "Reference" "#FLG301"
+			(at 167.64 82.55 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Value" "PWR_FLAG"
+			(at 167.64 84.09 0)
+			(effects (font (size 1.27 1.27)))
+		)
+		(property "Footprint" ""
+			(at 167.64 78.74 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(property "Datasheet" ""
+			(at 167.64 78.74 0)
+			(effects (font (size 1.27 1.27)) (hide yes))
+		)
+		(pin "1" (uuid "c7d3de5f-9ef2-4997-b488-0151707ccc62"))
+		(instances
+			(project "ice40hx1k_usb_core"
+				(path "/695ef6de-2162-5010-aaf1-5aa84a67d4eb"
+					(reference "#FLG301")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
