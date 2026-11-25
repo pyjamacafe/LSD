@@ -1,0 +1,18 @@
+Designators,Quantity,MPN,Manufacturer,Description,Footprint,DNP,Technology
+U1,1,ICE40HX1K-TQ144,Lattice Semiconductor,FPGA 1280 LUTs 144-TQFP,"TQFP-144 (20x20mm, P0.5mm)",No,SMT
+U2,1,W25Q16JVSSIQ,Winbond,16Mbit (2MB) SPI NOR Flash,"SOIC-8 (5.3x5.3mm, P1.27mm)",No,SMT
+U3,1,AP2112K-3.3TRG1,Diodes Incorporated,3.3V 600mA Low-Noise LDO Regulator,SOT-23-5,No,SMT
+U4,1,AP2112K-1.2TRG1,Diodes Incorporated,1.2V 600mA Low-Noise LDO Regulator,SOT-23-5,No,SMT
+U5,1,USBLC6-2SC6,STMicroelectronics,USB 2.0 Low-Capacitance ESD Protection,SOT-23-6,No,SMT
+Y1,1,ASE-16.000MHZ-LC-T,Abracon,16 MHz 3.3V CMOS SMD Oscillator,3.2x2.5mm 4-Pin SMD,No,SMT
+J1,1,0473460001,Molex,"USB Micro-B Receptacle, Horizontal SMD",USB Micro-B SMD,No,SMT
+D1,1,1N4148W-7-F,Diodes Incorporated,Switching Diode 75V 300mA (VPP_2V5 drop),SOD-123,No,SMT
+"SW1,SW2",2,B3U-1000P,Omron,"Tactile Push Button Switch SPST-NO (RST, PROG)",3.0x2.5mm 2-Pin SMD,No,SMT
+"R1,R2",2,RC0603FR-0727RL,Yageo,"27 Ohm 1% 0603 Resistor (USB D+/D- series, no2usb)",0603 (1608 metric),No,SMT
+R3,1,RC0603FR-071K5L,Yageo,1.5 kOhm 1% 0603 Resistor (USB D+ pull-up),0603 (1608 metric),No,SMT
+"R4,R5,R6,R8,R9,R10",6,RC0603FR-0710KL,Yageo,10 kOhm 1% 0603 Pull-up Resistor,0603 (1608 metric),No,SMT
+R7,1,RC0603FR-07100RL,Yageo,100 Ohm 1% 0603 Resistor (VCCPLL filter),0603 (1608 metric),No,SMT
+"C1,C2,C3,C4,C13",5,GRM188R61A106KE69D,Murata,10 uF 10V X5R 0603 MLCC Capacitor,0603 (1608 metric),No,SMT
+"C5,C6,C7,C8,C9,C10,C11,C12,C14,C15,C16,C17,C18",13,GRM188R71C104KA01D,Murata,100 nF 16V X7R 0603 MLCC Capacitor,0603 (1608 metric),No,SMT
+J2,1,61300821121,Wurth Elektronik,"2x4 2.54mm Pin Header (SPI Boot, Unpopulated)",PinHeader 2x04 P2.54mm,Yes,through_hole
+"J3,J4",2,61302011121,Wurth Elektronik,1x20 2.54mm Pin Header (User soldered),PinHeader 1x20 P2.54mm,Yes,through_hole

@@ -7,8 +7,8 @@
 	(title_block
 		(title "!LSD — iCE40HX1K-TQ144 USB Breadboard Core")
 		(date "2026-11-25")
-		(rev "2.3")
-		(comment 1 "FTDI-less USB Micro-B via USB DFU Bootloader; 31.2x64mm 2-Layer")
+		(rev "2.4")
+		(comment 1 "FTDI-less USB Micro-B via no2bootloader DFU; 31.2x64mm 2-Layer")
 		(comment 2 "2x20 2.54mm breadboard headers spaced 27.94mm (1.1in); 16MHz->48MHz PLL")
 	)
 	(lib_symbols
@@ -7036,7 +7036,7 @@
 			(at 91.44 31.75 0)
 			(effects (font (size 1.27 1.27)) )
 		)
-		(property "Value" "68"
+		(property "Value" "27"
 			(at 91.44 39.37 0)
 			(effects (font (size 1.27 1.27)))
 		)
@@ -7072,7 +7072,7 @@
 			(at 91.44 39.37 0)
 			(effects (font (size 1.27 1.27)) )
 		)
-		(property "Value" "68"
+		(property "Value" "27"
 			(at 91.44 46.99 0)
 			(effects (font (size 1.27 1.27)))
 		)

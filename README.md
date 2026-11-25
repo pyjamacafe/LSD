@@ -20,9 +20,8 @@
 * **FPGA:** Lattice `iCE40HX1K-TQ144` (1,280 4-LUTs, 64 kbit EBR, 1× `SB_PLL40_CORE`, 144-pin 0.5 mm TQFP)
 * **Form Factor:** `31.2 mm × 64.0 mm` 2-layer FR-4 PCB (1.6 mm), solid `B.Cu` ground plane, 45°-mitered routing
 * **Breadboard Headers:** Two 1×20 2.54 mm through-hole rows (`J3` left, `J4` right) spaced **`27.94 mm` (1.100″ / 11 × 2.54 mm)** apart center-to-center — **36× 3.3V GPIOs**, `+3V3` (top-left), `+5V` VBUS (top-right), and `GND` (bottom-left & bottom-right). Headers are unpopulated by default for user soldering.
-* **FTDI-less USB Micro-B:** Top-edge horizontal `Molex 47346-0001` (`J1`) → `USBLC6-2SC6` ESD protection (`U5`) → series resistors (`R1`, `R2`) + software-controlled `1.5 kΩ` `D+` pull-up (`R3`) wired directly to Bank 0 pins `129` (`USB_DN`), `128` (`USB_DP`), and `122` (`USB_PU`).
-  * *BOM Note:* `R1`/`R2` are `0603` footprints (currently `68 Ω` for TinyFPGA; `22 Ω`–`33 Ω` is recommended if targeting `no2usb` impedance matching).
-* **Clock:** `16 MHz` 3.3V CMOS oscillator (`Y1`, Abracon ASE 3.2×2.5 mm) wired to `GBIN6` (Pin `21`), multiplied to `48.000 MHz` via `SB_PLL40_CORE` for Full-Speed USB.
+* **FTDI-less USB Micro-B (`no2bootloader` ready):** Top-edge horizontal `Molex 47346-0001` (`J1`) → `USBLC6-2SC6` ESD protection (`U5`) → `27 Ω` 1% series damping resistors (`R1`, `R2`) + software-controlled `1.5 kΩ` `D+` pull-up (`R3`, on connector side of `R1`) wired directly to Bank 0 pins `129` (`USB_DN`), `128` (`USB_DP`), and `122` (`USB_PU`).
+* **Clock:** `16 MHz` 3.3V CMOS oscillator (`Y1`, Abracon ASE 3.2×2.5 mm) wired to `GBIN6` (Pin `21`), multiplied to an exact `48.000 MHz` via `SB_PLL40_PAD` / `SB_PLL40_CORE` (`DIVR=0`, `DIVF=47`, `DIVQ=4`, `FILTER_RANGE=1`) for Full-Speed USB.
 * **SPI Flash:** `W25Q16JVSS` (16 Mbit / 2 MB SOIC-8, `U2`) wired in Master SPI multiboot mode (`Pin 67 SDO → Flash DO`, `Pin 68 SDI → Flash DI`, `Pin 70 SCK`, `Pin 71 SS`) with `10 kΩ` pull-ups on `FLASH_CS_N`, `CRESET_B`, `CDONE`, `~WP`, and `~HOLD`.
 * **Push Buttons (Omron `B3U-1000P`):**
   * **`RST` (`SW1`):** Pulls `CRESET_B` (Pin `66`) low to reset and reboot the FPGA from SPI Flash.
@@ -63,9 +62,9 @@ brew install yosys nextpnr-ice40 icestorm dfu-util
 A blank `W25Q16JVSS` flash has no bitstream yet, so flash `no2bootloader` **once**:
 
 1. **Build `no2bootloader` for `hx1k` (`tq144`)** using the pinout in [pins.pcf](pins.pcf):
-   * `CLK_16M` → Pin `21` (16 MHz → 48 MHz via `SB_PLL40_CORE`)
-   * `USB_DP` → Pin `128`, `USB_DN` → Pin `129`, `USB_PU` → Pin `122`
-   * `PROG_BTN_N` → Pin `121` (active-low)
+   * `CLK_16M` → Pin `21` (`GBIN6`; 16 MHz → 48.000 MHz exact via `SB_PLL40_PAD`/`SB_PLL40_CORE` with `DIVR=0`, `DIVF=47`, `DIVQ=4`, `FILTER_RANGE=1`)
+   * `USB_DP` → Pin `128`, `USB_DN` → Pin `129` (`27 Ω` series), `USB_PU` → Pin `122` (`1.5 kΩ` software pull-up)
+   * `PROG_BTN_N` → Pin `121` (active-low, `10 kΩ` pull-up)
    * `FLASH_DO` → `67`, `FLASH_DI` → `68`, `FLASH_SCK` → `70`, `FLASH_CS_N` → `71`
 2. **Pack the multiboot image** with `icemulti` (Slot 0 = bootloader, Slot 1 = user bitstream):
    ```bash
@@ -110,6 +109,7 @@ python3 -m http.server 8000
 | `pins.pcf` | IceStorm / `nextpnr-ice40` pin constraint file matching back silkscreen |
 | `fab/gerbers/` | Fabrication-ready 2-layer Gerber X2 + Excellon `.drl` + drill map |
 | `fab/bom.csv` | Bill of Materials |
+| `fab/lioncircuits/` | LionCircuits-formatted Gerber `.zip`, BOM `.xlsx`/`.csv`, and CPL `.xlsx`/`.csv` |
 | `renders/ice40hx1k_usb_core.glb` | Full-detail PBR 3D model (WebGL / Three.js / `<model-viewer>`) |
 | `renders/ice40hx1k_usb_core.step` | Mechanical CAD 3D model (Fusion 360 / FreeCAD / SolidWorks) |
 | `renders/schematic.pdf` | Printable schematic PDF |

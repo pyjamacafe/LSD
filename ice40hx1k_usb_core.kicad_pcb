@@ -755,7 +755,7 @@
 			)
 		)
 	)
-	(property "Value" "68"
+	(property "Value" "27"
 		(at 0 1.43 0)
 		(layer "F.Fab")
 		(effects
@@ -867,7 +867,7 @@
 			)
 		)
 	)
-	(property "Value" "68"
+	(property "Value" "27"
 		(at 0 1.43 0)
 		(layer "F.Fab")
 		(effects
