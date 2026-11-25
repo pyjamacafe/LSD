@@ -1,56 +1,63 @@
 # Lattice iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1" Pitch) — Pin Constraints (.pcf)
-# Compatible with Yosys / nextpnr-ice40 / IceStorm / TinyFPGA USB Bootloader
+# Matches the B.SilkS pin labels printed on the back of the PCB (e.g. L0/P1 .. R17/P98).
+# Compatible with Yosys / nextpnr-ice40 / IceStorm / TinyFPGA USB Bootloader.
 
-# 16 MHz System Clock (GBIN6 -> internal SB_PLL40_CORE -> 48 MHz for USB FS)
-set_io CLK_16M 21
+# ---------------------------------------------------------------------------
+# System Clock & Direct FTDI-less USB Full-Speed Interface
+# ---------------------------------------------------------------------------
+set_io CLK_16M 21   # 16 MHz Oscillator (GBIN6 -> SB_PLL40_CORE -> 48 MHz USB)
+set_io USB_DN 129   # USB Mini-B D- (via 68R + USBLC6-2SC6)
+set_io USB_DP 128   # USB Mini-B D+ (via 68R + USBLC6-2SC6)
+set_io USB_PU 122   # USB D+ 1.5k software pull-up control
 
-# Direct FTDI-less USB Full-Speed Interface (Bank 0, Top Edge, 3.3V)
-set_io USB_DN 129
-set_io USB_DP 128
-set_io USB_PU 122
+# ---------------------------------------------------------------------------
+# External SPI Flash (W25Q16JVSS) — Master SPI Boot & Bootloader Flash Access
+# ---------------------------------------------------------------------------
+set_io FLASH_DO   67  # Flash DO / IO1 (Master MISO)
+set_io FLASH_DI   68  # Flash DI / IO0 (Master MOSI)
+set_io FLASH_SCK  70  # Flash CLK
+set_io FLASH_CS_N 71  # Flash ~CS (10k pull-up for Master SPI boot)
 
-# External SPI Flash (W25Q16JVSS) — Master SPI Boot & Runtime Bootloader Access
-set_io FLASH_DO   67
-set_io FLASH_DI   68
-set_io FLASH_SCK  70
-set_io FLASH_CS_N 71
+# ---------------------------------------------------------------------------
+# Left 1x20 Breadboard Header J3 (Top -> Bottom: Pin 1 = 3V3, Pin 20 = GND)
+# ---------------------------------------------------------------------------
+set_io L0  1    # J3 Pin 2  | PCB Silk: L0/P1   (Bank 3, IOL_1A)
+set_io L1  2    # J3 Pin 3  | PCB Silk: L1/P2   (Bank 3, IOL_1B)
+set_io L2  3    # J3 Pin 4  | PCB Silk: L2/P3   (Bank 3, IOL_2A)
+set_io L3  4    # J3 Pin 5  | PCB Silk: L3/P4   (Bank 3, IOL_2B)
+set_io L4  7    # J3 Pin 6  | PCB Silk: L4/P7   (Bank 3, IOL_3A)
+set_io L5  8    # J3 Pin 7  | PCB Silk: L5/P8   (Bank 3, IOL_3B)
+set_io L6  9    # J3 Pin 8  | PCB Silk: L6/P9   (Bank 3, IOL_4A)
+set_io L7  10   # J3 Pin 9  | PCB Silk: L7/P10  (Bank 3, IOL_4B)
+set_io L8  11   # J3 Pin 10 | PCB Silk: L8/P11  (Bank 3, IOL_5A)
+set_io L9  12   # J3 Pin 11 | PCB Silk: L9/P12  (Bank 3, IOL_5B)
+set_io L10 19   # J3 Pin 12 | PCB Silk: L10/P19 (Bank 3, IOL_6A)
+set_io L11 20   # J3 Pin 13 | PCB Silk: L11/P20 (Bank 3, IOL_6B_GBIN7)
+set_io L12 22   # J3 Pin 14 | PCB Silk: L12/P22 (Bank 3, IOL_7B)
+set_io L13 23   # J3 Pin 15 | PCB Silk: L13/P23 (Bank 3, IOL_8A)
+set_io L14 24   # J3 Pin 16 | PCB Silk: L14/P24 (Bank 3, IOL_8B)
+set_io L15 25   # J3 Pin 17 | PCB Silk: L15/P25 (Bank 3, IOL_9A)
+set_io L16 28   # J3 Pin 18 | PCB Silk: L16/P28 (Bank 3, IOL_10A)
+set_io L17 29   # J3 Pin 19 | PCB Silk: L17/P29 (Bank 3, IOL_10B)
 
-# Left 1x20 Breadboard Header J3 (Bank 3: Pin 1 = +3V3, Pins 2..19 = IO_L0..17, Pin 20 = GND)
-set_io IO_L0  1
-set_io IO_L1  2
-set_io IO_L2  3
-set_io IO_L3  4
-set_io IO_L4  7
-set_io IO_L5  8
-set_io IO_L6  9
-set_io IO_L7  10
-set_io IO_L8  11
-set_io IO_L9  12
-set_io IO_L10 19
-set_io IO_L11 20
-set_io IO_L12 22
-set_io IO_L13 23
-set_io IO_L14 24
-set_io IO_L15 25
-set_io IO_L16 28
-set_io IO_L17 29
-
-# Right 1x20 Breadboard Header J4 (Bank 1: Pin 1 = GND, Pins 2..19 = IO_R0..17, Pin 20 = +5V VBUS)
-set_io IO_R0  73
-set_io IO_R1  74
-set_io IO_R2  75
-set_io IO_R3  76
-set_io IO_R4  78
-set_io IO_R5  79
-set_io IO_R6  80
-set_io IO_R7  81
-set_io IO_R8  87
-set_io IO_R9  88
-set_io IO_R10 90
-set_io IO_R11 91
-set_io IO_R12 93
-set_io IO_R13 94
-set_io IO_R14 95
-set_io IO_R15 96
-set_io IO_R16 97
-set_io IO_R17 98
+# ---------------------------------------------------------------------------
+# Right 1x20 Breadboard Header J4 (Top -> Bottom: Pin 20 = 5V, Pin 1 = GND)
+# ---------------------------------------------------------------------------
+set_io R17 98   # J4 Pin 19 | PCB Silk: R17/P98 (Bank 1, IOR_65)
+set_io R16 97   # J4 Pin 18 | PCB Silk: R16/P97 (Bank 1, IOR_64)
+set_io R15 96   # J4 Pin 17 | PCB Silk: R15/P96 (Bank 1, IOR_63)
+set_io R14 95   # J4 Pin 16 | PCB Silk: R14/P95 (Bank 1, IOR_62)
+set_io R13 94   # J4 Pin 15 | PCB Silk: R13/P94 (Bank 1, IOR_61_GBIN2)
+set_io R12 93   # J4 Pin 14 | PCB Silk: R12/P93 (Bank 1, IOR_60_GBIN3)
+set_io R11 91   # J4 Pin 13 | PCB Silk: R11/P91 (Bank 1, IOR_59)
+set_io R10 90   # J4 Pin 12 | PCB Silk: R10/P90 (Bank 1, IOR_58)
+set_io R9  88   # J4 Pin 11 | PCB Silk: R9/P88  (Bank 1, IOR_57)
+set_io R8  87   # J4 Pin 10 | PCB Silk: R8/P87  (Bank 1, IOR_56)
+set_io R7  81   # J4 Pin 9  | PCB Silk: R7/P81  (Bank 1, IOR_55)
+set_io R6  80   # J4 Pin 8  | PCB Silk: R6/P80  (Bank 1, IOR_54)
+set_io R5  79   # J4 Pin 7  | PCB Silk: R5/P79  (Bank 1, IOR_53)
+set_io R4  78   # J4 Pin 6  | PCB Silk: R4/P78  (Bank 1, IOR_52)
+set_io R3  76   # J4 Pin 5  | PCB Silk: R3/P76  (Bank 1, IOR_51)
+set_io R2  75   # J4 Pin 4  | PCB Silk: R2/P75  (Bank 1, IOR_50)
+set_io R1  74   # J4 Pin 3  | PCB Silk: R1/P74  (Bank 1, IOR_49)
+set_io R0  73   # J4 Pin 2  | PCB Silk: R0/P73  (Bank 1, IOR_48)
