@@ -7,12 +7,12 @@
 	(title_block
 		(title "iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1in)")
 		(date "2026-11-25")
-		(rev "2.0")
-		(comment 1 "FTDI-less USB Mini-B via TinyFPGA RTL USB Bootloader; 31.2x58mm 2-Layer")
+		(rev "2.2")
+		(comment 1 "FTDI-less USB Micro-B via TinyFPGA RTL USB Bootloader; 31.2x64mm 2-Layer")
 		(comment 2 "2x20 2.54mm breadboard headers spaced 27.94mm (1.1in); 16MHz->48MHz PLL")
 	)
 	(lib_symbols
-		(symbol "Connector:USB_B_Mini"
+		(symbol "Connector:USB_B_Micro"
 				(pin_names
 					(offset 1.016)
 				)
@@ -32,7 +32,7 @@
 						(justify left)
 					)
 				)
-				(property "Value" "USB_B_Mini"
+				(property "Value" "USB_B_Micro"
 					(at -5.08 8.89 0)
 					(show_name no)
 					(do_not_autoplace no)
@@ -65,7 +65,7 @@
 						)
 					)
 				)
-				(property "Description" "USB Mini Type B connector"
+				(property "Description" "USB Micro Type B connector"
 					(at 0 0 0)
 					(show_name no)
 					(do_not_autoplace no)
@@ -76,7 +76,7 @@
 						)
 					)
 				)
-				(property "ki_keywords" "connector USB mini"
+				(property "ki_keywords" "connector USB micro"
 					(at 0 0 0)
 					(show_name no)
 					(do_not_autoplace no)
@@ -87,7 +87,7 @@
 						)
 					)
 				)
-				(property "ki_fp_filters" "USB*Mini*B*"
+				(property "ki_fp_filters" "USB*Micro*B*"
 					(at 0 0 0)
 					(show_name no)
 					(do_not_autoplace no)
@@ -98,7 +98,7 @@
 						)
 					)
 				)
-				(symbol "USB_B_Mini_0_1"
+				(symbol "USB_B_Micro_0_1"
 					(rectangle
 						(start -5.08 -7.62)
 						(end 5.08 7.62)
@@ -272,7 +272,7 @@
 						)
 					)
 				)
-				(symbol "USB_B_Mini_1_1"
+				(symbol "USB_B_Micro_1_1"
 					(pin power_out line
 						(at 7.62 5.08 180)
 						(length 2.54)
@@ -6597,7 +6597,7 @@
 				(embedded_fonts no)
 			)
 	)
-	(text "1. USB MINI-B (FTDI-LESS DIRECT FPGA INTERFACE)" (exclude_from_sim no) (at 20.32 20.32 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left bottom)) (uuid "ebe84393-1151-5229-a911-b7c8475af0dc"))
+	(text "1. USB MICRO-B (FTDI-LESS DIRECT FPGA INTERFACE)" (exclude_from_sim no) (at 20.32 20.32 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left bottom)) (uuid "ebe84393-1151-5229-a911-b7c8475af0dc"))
 	(text "2. POWER SUPPLY (3.3V IO / 1.2V CORE / VPP / PLL)" (exclude_from_sim no) (at 20.32 71.12 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left bottom)) (uuid "58effb4c-fbbd-5cd8-a174-f87572d26982"))
 	(text "DECOUPLING CAPACITORS" (exclude_from_sim no) (at 20.32 134.62 0) (effects (font (size 1.9 1.9) (bold yes)) (justify left bottom)) (uuid "3508a568-505e-570a-b113-8378c9f18118"))
 	(text "3. 16 MHz SYSTEM CLOCK (48 MHz VIA PLL)" (exclude_from_sim no) (at 20.32 165.1 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left bottom)) (uuid "3beeec98-7c63-5907-b450-c48f39f46347"))
@@ -6605,7 +6605,7 @@
 	(text "5. LATTICE ICE40HX1K-TQ144 FPGA (1,280 LUTs)" (exclude_from_sim no) (at 132.08 20.32 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left bottom)) (uuid "5e117e02-6f26-5e03-bf85-e0a6bcbcee1a"))
 	(text "6. BREADBOARD HEADERS (2x20, 27.94mm / 1.1in PITCH)" (exclude_from_sim no) (at 287.02 20.32 0) (effects (font (size 2.54 2.54) (bold yes)) (justify left bottom)) (uuid "d1dd3632-73b3-5b88-9d38-bde067e9b3d2"))
 	(symbol
-		(lib_id "Connector:USB_B_Mini")
+		(lib_id "Connector:USB_B_Micro")
 		(at 30.48 40.64 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6617,11 +6617,11 @@
 			(at 30.48 36.83 0)
 			(effects (font (size 1.27 1.27)) )
 		)
-		(property "Value" "USB_B_Mini"
+		(property "Value" "USB_B_Micro"
 			(at 30.48 44.45 0)
 			(effects (font (size 1.27 1.27)))
 		)
-		(property "Footprint" "Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal"
+		(property "Footprint" "Connector_USB:USB_Micro-B_Molex_47346-0001"
 			(at 30.48 40.64 0)
 			(effects (font (size 1.27 1.27)) (hide yes))
 		)

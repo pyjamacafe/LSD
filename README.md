@@ -1,12 +1,12 @@
 # iCE40HX1K-TQ144 USB Breadboard Core (Pico-Style 1.1″ Carrier, KiCad 10)
 
-A breadboardable, Raspberry Pi Pico-style 2-layer **Lattice iCE40HX1K-TQ144** (1,280 LUTs) FPGA core board designed in **KiCad 10**, programmable directly over a top-edge **USB Mini-B** port without an FTDI bridge chip by running the open-source **TinyFPGA RTL USB Bootloader** in the FPGA fabric.
+A breadboardable, Raspberry Pi Pico-style 2-layer **Lattice iCE40HX1K-TQ144** (1,280 LUTs) FPGA core board designed in **KiCad 10**, programmable directly over a top-edge **USB Micro-B** port without an FTDI bridge chip by running the open-source **TinyFPGA RTL USB Bootloader** in the FPGA fabric.
 
 ## Key Specifications
 - **Form Factor:** `31.2 mm × 64.0 mm` 2-layer FR-4 PCB (1.6 mm), solid `B.Cu` ground plane
 - **Breadboard Headers:** Two 1×20 2.54 mm headers (`J3` left, `J4` right) spaced **`27.94 mm` (1.100″ / 11 × 2.54 mm)** apart center-to-center — 36× 3.3V GPIOs plus `+3V3` (top-left), `+5V` VBUS (top-right, Pico Pin 40 style), and `GND` (bottom-left & bottom-right)
 - **FPGA:** Lattice `iCE40HX1K-TQ144` (1,280 LUTs, 64 kbit EBR, 1× PLL, 144-pin 0.5 mm TQFP) centered between the breadboard headers
-- **USB Programming (No FTDI):** Top-center USB Mini-B (`J1`) + `USBLC6-2SC6` ESD protection (`U5`) + 68 Ω series resistors (`R1`, `R2`) + software-controlled 1.5 kΩ `D+` pull-up (`R3`) wired directly to Bank 0 pins `129` (`USB_DN`), `128` (`USB_DP`), and `122` (`USB_PU`)
+- **USB Programming (No FTDI):** Top-center USB Micro-B (`J1`, Molex 47346-0001) + `USBLC6-2SC6` ESD protection (`U5`) + 68 Ω series resistors (`R1`, `R2`) + software-controlled 1.5 kΩ `D+` pull-up (`R3`) wired directly to Bank 0 pins `129` (`USB_DN`), `128` (`USB_DP`), and `122` (`USB_PU`)
 - **Clock:** 16 MHz 3.3V CMOS oscillator (`Y1`, Abracon ASE) wired to `GBIN6` (Pin `21`), multiplied to 48 MHz via `SB_PLL40_CORE` for Full-Speed USB
 - **Configuration Memory:** `W25Q16JVSS` (16 Mbit / 2 MB SOIC-8 SPI Flash, `U2`) wired in Master SPI mode with 10 kΩ pull-ups on `FLASH_CS_N`, `CRESET_B`, `CDONE`, `~WP`, and `~HOLD`
 - **One-Time SPI Bootstrap Header:** Unpopulated 2×4 `J2` (`SPI_BOOT_HDR`) centered along the bottom edge (just like the Raspberry Pi Pico's bottom SWD port)

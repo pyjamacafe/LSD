@@ -18,7 +18,7 @@
 "C17","100nF","Capacitor_SMD:C_0603_1608Metric","1",""
 "C18","100nF","Capacitor_SMD:C_0603_1608Metric","1",""
 "D1","1N4148W","Diode_SMD:D_SOD-123","1",""
-"J1","USB_B_Mini","Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal","1",""
+"J1","USB_B_Micro","Connector_USB:USB_Micro-B_Molex_47346-0001","1",""
 "J2","SPI_BOOT_HDR","Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical","1","DNP"
 "J3","LEFT_HDR","Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical","1",""
 "J4","RIGHT_HDR","Connector_PinHeader_2.54mm:PinHeader_1x20_P2.54mm_Vertical","1",""
