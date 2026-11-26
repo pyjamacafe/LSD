@@ -18,7 +18,7 @@
 ## Hardware Specifications
 
 * **FPGA:** Lattice `iCE40HX1K-TQ144` (1,280 4-LUTs, 64 kbit EBR, 1× `SB_PLL40_CORE`, 144-pin 0.5 mm TQFP)
-* **Form Factor:** `31.2 mm × 64.0 mm` 2-layer FR-4 PCB (1.6 mm), solid `B.Cu` ground plane, 45°-mitered routing
+* **Form Factor:** `31.2 mm × 64.0 mm` 2-layer FR-4 PCB (1.6 mm) with **`1.5 mm` rounded corners**, filled `B.Cu` ground plane, 45°-mitered routing, and crisp `0.65 mm` non-overlapping top silkscreen references (`0` silk-over-pad)
 * **Breadboard Headers:** Two 1×20 2.54 mm through-hole rows (`J3` left, `J4` right) spaced **`27.94 mm` (1.100″ / 11 × 2.54 mm)** apart center-to-center — **36× 3.3V GPIOs**, `+3V3` (top-left), `+5V` VBUS (top-right), and `GND` (bottom-left & bottom-right). Headers are unpopulated by default for user soldering.
 * **FTDI-less USB Micro-B (`no2bootloader` ready):** Top-edge horizontal `Molex 47346-0001` (`J1`) → `USBLC6-2SC6` ESD protection (`U5`) → `27 Ω` 1% series damping resistors (`R1`, `R2`) + software-controlled `1.5 kΩ` `D+` pull-up (`R3`, on connector side of `R1`) wired directly to Bank 0 pins `129` (`USB_DN`), `128` (`USB_DP`), and `122` (`USB_PU`).
 * **Clock:** `16 MHz` 3.3V CMOS oscillator (`Y1`, Abracon ASE 3.2×2.5 mm) wired to `GBIN6` (Pin `21`), multiplied to an exact `48.000 MHz` via `SB_PLL40_PAD` / `SB_PLL40_CORE` (`DIVR=0`, `DIVF=47`, `DIVQ=4`, `FILTER_RANGE=1`) for Full-Speed USB.
@@ -34,13 +34,14 @@
 ## Verification (KiCad `10.0.3` CLI — Rev `2.5`)
 
 * **Schematic ERC (`kicad-cli sch erc`):** `0` errors, `0` warnings
-* **2-Layer PCB DRC (`kicad-cli pcb drc --refill-zones`):** `0` errors, `0` unconnected items
+* **2-Layer PCB DRC (`kicad-cli pcb drc`, saved filled `B.Cu` `GND` zone):** `0` errors, `0` unconnected items, `0` `silk_over_copper` warnings
+* **Gerbers (`--check-zones`):** Verified filled `B.Cu` `GND` pour (`G36`), `1.5 mm` rounded `Edge.Cuts`, and 43/43 1:1 BOM/CPL parity
 
 ---
 
-## Programming Guide (`no2bootloader` USB DFU)
+## Programming Guide (Direct USB Bootloader)
 
-Because `no2bootloader` / `no2usb` is a compact pure-Verilog USB Full-Speed DFU bootloader (~500–800 LUTs), it fits comfortably inside the 1,280-LUT `iCE40HX1K` and works with standard `dfu-util` (no FTDI chip or custom host drivers required).
+Because the `iCE40HX1K` has **1,280 LUTs** (no SPRAM), it supports compact pure-Verilog Full-Speed USB bootloaders — such as **`TinyFPGA-Bootloader`** (~950–1,050 LUTs, works out of the box on `HX1K` with `tinyprog`) or a lightweight pure-Verilog **`no2usb`** DFU FSM (note: the full RISC-V `no2bootloader` targets `iCE40UP5K` and exceeds 1,280 LUTs). Both use the exact same hardware (`16 MHz → 48 MHz` PLL, `27 Ω` series `D+`/`D-`, `1.5 kΩ` software `USB_PU`, `W25Q16JVSS` SPI Flash).
 
 ### Prerequisites
 Install the open-source IceStorm FPGA toolchain + `dfu-util` (e.g., via Homebrew on macOS or [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases)):
